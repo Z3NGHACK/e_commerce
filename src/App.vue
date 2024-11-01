@@ -78,3 +78,20 @@ export default {
   margin-top: 20px;
 }
 </style>
+
+<!-- <script>
+  import Increase from './components/Increase.vue';
+  import Decrease from './components/Decrease.vue';
+  export default{
+    components:{Increase, Decrease}
+  }
+ 
+</script>
+<template>
+  <div>
+    Increase and Decrease function
+    <Increase/>
+    <Decrease/>
+    <h2></h2>
+  </div>
+</template> -->

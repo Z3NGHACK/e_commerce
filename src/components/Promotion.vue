@@ -1,6 +1,20 @@
+<template>
+    <button class="promotion-card" :style="{ backgroundColor: backgroundColor }" >
+        <h2 class="title">{{ title }}</h2>
+        <!-- <button class="shop-btn">Shop Now →</button> -->
+        <img :src="image" alt="banner image" class="promotion-img" :style="{ width: width + 'px'}">
+        <Btn @click="shopNow"/>
+    </button>
+</template>
 <script>
 import Btn from './Btn.vue';
 export default {
+    
+    data(){
+        return{
+            message: "helo"
+        }
+    },
     components: {
         Btn,
     },
@@ -9,17 +23,15 @@ export default {
         image: String,
         backgroundColor: String,
         width: Number
+    },
+    method:{
+        shopNow(promotion){
+            alert(this.message)
+        }
     }
+    
 }
 </script>
-<template>
-    <button class="promotion-card" :style="{ backgroundColor: backgroundColor }" >
-        <h2 class="title">{{ title }}</h2>
-        <!-- <button class="shop-btn">Shop Now →</button> -->
-        <img :src="image" alt="banner image" class="promotion-img" :style="{ width: width + 'px'}">
-        <Btn/>
-    </button>
-</template>
 
 
 <style scoped>
