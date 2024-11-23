@@ -1,6 +1,7 @@
-<script>
+<!-- <script>
 import Category from './components/Category.vue';
 import Promotion from './components/Promotion.vue';
+
 
 export default {
   components: {
@@ -94,4 +95,32 @@ export default {
     <Decrease/>
     <h2></h2>
   </div>
-</template> -->
+</template> --> 
+
+<template>
+  <div>
+    <h1>Welcome to E-commerce App</h1>
+    <Menu/>
+    <Product/>
+  </div>
+</template>
+
+<script>
+import {useProductStore} from './views/productStore.js'
+import Menu from './components/Menu.vue';
+import Product from './components/Product.vue';
+
+export default {
+  async mounted() {
+    const store = useProductStore();
+    await store.fetchGroups();
+    await store.fetchPromotions();
+    await store.fetchCategories();
+    await store.fetchProducts();
+  },
+  components:{
+    Menu,
+    Product
+  },  
+};
+</script>
