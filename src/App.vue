@@ -106,21 +106,28 @@ export default {
 </template>
 
 <script>
-import {useProductStore} from './views/productStore.js'
+import {useProductStore} from '../stores/productStore.js'
 import Menu from './components/Menu.vue';
 import Product from './components/Product.vue';
 
+
+
+import { onMounted } from 'vue';
+
 export default {
-  async mounted() {
+  setup() {
     const store = useProductStore();
-    await store.fetchGroups();
-    await store.fetchPromotions();
-    await store.fetchCategories();
-    await store.fetchProducts();
+
+    onMounted(async () => {
+      await store.fetchGroups();
+      await store.fetchPromotions();
+      await store.fetchCategories();
+      await store.fetchProducts();
+    });
   },
-  components:{
+  components: {
     Menu,
-    Product
-  },  
+    Product,
+  },
 };
 </script>
